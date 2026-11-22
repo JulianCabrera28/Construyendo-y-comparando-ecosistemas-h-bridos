@@ -1,0 +1,33 @@
+﻿                                                                      QUERY PLAN                                                                      
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=341.42..342.43 rows=403 width=72) (actual time=0.933..0.947 rows=409 loops=1)
+   Sort Key: registrado_en DESC
+   Sort Method: quicksort  Memory: 37kB
+   Buffers: shared hit=251
+   ->  Bitmap Heap Scan on eventos_replica e  (cost=19.03..323.99 rows=403 width=72) (actual time=0.117..0.847 rows=409 loops=1)
+         Recheck Cond: ((paciente_id = 2) AND (registrado_en >= (now() - '24:00:00'::interval)))
+         Filter: ((tipo)::text = 'signo_vital'::text)
+         Rows Removed by Filter: 246
+         Heap Blocks: exact=244
+         Buffers: shared hit=248
+         ->  Bitmap Index Scan on ix_eventos_replica_paciente_tiempo  (cost=0.00..18.93 rows=664 width=0) (actual time=0.066..0.066 rows=655 loops=1)
+               Index Cond: ((paciente_id = 2) AND (registrado_en >= (now() - '24:00:00'::interval)))
+               Buffers: shared hit=4
+ Planning:
+   Buffers: shared hit=183
+ Planning Time: 0.691 ms
+ Execution Time: 0.987 ms
+(17 filas)
+
+DROP TABLE
+psql.exe : psql:sql/03_consulta_comparativa.sql:11: NOTICE:  la tabla ┬½metricas_postgres┬╗ no existe, omitiendo
+En línea: 1 Carácter: 82
++ ... \psql.exe'; & $psql -h 127.0.0.1 -U postgres -d hibrido_clinico -v ON ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (psql:sql/03_con...iste, omitiendo:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+CREATE TABLE
+psql:sql/03_consulta_comparativa.sql:55: NOTICE:  postgres promedio_ms=0.363 p95_ms=0.420 filas=409
+DO
+COPY 1

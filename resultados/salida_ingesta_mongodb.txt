@@ -1,0 +1,3 @@
+﻿eventos insertados: 10000
+tiempo_ingesta_ms: 152
+eventos_por_segundo: 65789

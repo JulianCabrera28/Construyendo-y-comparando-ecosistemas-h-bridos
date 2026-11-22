@@ -1,0 +1,29 @@
+﻿filas_devueltas: 409
+[
+  {
+    registrado_en: ISODate('2026-11-22T11:42:04.054Z'),
+    payload: {
+      sistolica: 101,
+      diastolica: 98
+    }
+  },
+  {
+    registrado_en: ISODate('2026-11-22T11:40:04.054Z'),
+    payload: {
+      sistolica: 102,
+      diastolica: 82
+    }
+  },
+  {
+    registrado_en: ISODate('2026-11-22T11:39:04.054Z'),
+    payload: {
+      sistolica: 141,
+      diastolica: 100
+    }
+  }
+]
+explain_execution_ms: 2
+explain_docs_examined: 655
+explain_keys_examined: 655
+mongodb promedio_ms: 3.553
+mongodb p95_ms: 4.646

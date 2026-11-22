@@ -1,0 +1,2 @@
+motor,operacion,repeticiones,promedio_ms,p95_ms,filas,ejecutado_en
+PostgreSQL,historial_tension_24h,30,0.363,0.420,409,2026-11-22 11:43:19.394111+00
